@@ -2,7 +2,7 @@
 
 ## Description
 
-End-to-end Computer Vision and Deep Learning application for plant seedling classification using TensorFlow, MobileNetV2 transfer learning, FastAPI REST API, and Streamlit frontend for real-time inference.
+End-to-end Computer Vision project demonstrating Deep Learning, Transfer Learning, Model Deployment, REST API development, and real-time image classification using TensorFlow, FastAPI, and Streamlit.
 
 The solution consists of:
 
