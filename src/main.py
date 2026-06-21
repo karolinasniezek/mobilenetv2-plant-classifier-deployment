@@ -4,6 +4,8 @@ import numpy as np
 import tensorflow as tf
 import keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.applications import MobileNetV2
+
 # 1. Stała wartość seed
 seed = 42
 
@@ -46,3 +48,12 @@ val_generator = train_datagen.flow_from_directory(
     class_mode="categorical",
     subset="validation"
 )
+
+base_model = MobileNetV2(
+    weights="imagenet", include_top=False, input_shape=(*IMG_SIZE, 3)
+)
+
+base_model.trainable = False
+
+
+
