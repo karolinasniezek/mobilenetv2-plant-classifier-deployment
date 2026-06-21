@@ -15,5 +15,14 @@ model = load_model("plant_seedlings_model.h5")
 def read_image(file) -> np.array:
     img = image.load_img(file, target_size=(224, 224))
     expanded_array = image.img_to_array(img)
-    normalized_array = np.expand_dims(expanded_array, axis=0) /225
+    normalized_array = np.expand_dims(expanded_array, axis=0) / 255.0
     return normalized_array
+
+@app.post("/predict")
+async def predict(file: UploadFile = File(...)):
+    img = read_image(io.BytesIO(await file.read()))
+    preds = model.predict(img)
+    class_idx = np.argmax(preds[0])
+    class_name = class_names[class_idx]
+    confidence = float(preds[0][class_idx])
+    return {"class": class_name, "confidence": confidence}
