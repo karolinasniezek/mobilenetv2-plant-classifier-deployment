@@ -114,9 +114,9 @@ plant-seedlings-classifier/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/plant-seedlings-classifier.git
+git clone https://github.com/your-username/plant-seedlings-classifier.git](https://github.com/karolinasniezek/mobilenetv2-plant-classifier-deployment.git
 
-cd plant-seedlings-classifier
+cd Mobilenetv2PlantClassifierDeployment
 ```
 
 ### Create Virtual Environment
@@ -147,29 +147,6 @@ pip install -r requirements.txt
 
 ---
 
-## Requirements
-
-### Example requirements.txt
-
-```text
-tensorflow
-keras
-numpy
-fastapi
-uvicorn
-streamlit
-requests
-pillow
-python-multipart
-```
-
-### Generate Requirements File
-
-```bash
-pip freeze > requirements.txt
-```
-
----
 
 ## Training
 
@@ -246,7 +223,7 @@ curl -X POST \
 
 ```json
 {
-  "class": "Sugar beet",
+  "class": "Maize",
   "confidence": 0.9734
 }
 ```
