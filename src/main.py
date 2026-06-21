@@ -3,8 +3,11 @@ import random
 import numpy as np
 import tensorflow as tf
 import keras
+
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.models import Model
 
 # 1. Stała wartość seed
 seed = 42
@@ -55,5 +58,15 @@ base_model = MobileNetV2(
 
 base_model.trainable = False
 
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
+x = Dense(128, activation="leaky_relu")(x)
+outputs = Dense(train_generator.num_classes, activation="softmax")(x)
 
+model = Model(inputs=base_model.input, outputs=outputs)
 
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+
+model.fit(train_generator, validation_data=val_generator, epochs=5)
+
+model.save("plant_seedlings_model.h5")
