@@ -3,7 +3,7 @@ import random
 import numpy as np
 import tensorflow as tf
 import keras
-
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 # 1. Stała wartość seed
 seed = 42
 
@@ -13,13 +13,12 @@ random.seed(seed)
 np.random.seed(seed)
 tf.random.set_seed(seed)
 keras.utils.set_random_seed(seed)
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 os.environ["TF_DETERMINISTIC_OPS"] = "1"
 tf.config.experimental.enable_op_determinism()
 
-train_dir = "plants_train"
-val_dir = "plants_test"
+train_dir = "../data/plants_train"
+val_dir = "../data/plants_test"
 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
@@ -30,4 +29,20 @@ train_datagen = ImageDataGenerator(
     zoom_range=0.2,
     horizontal_flip=True,
     validation_split=0.2
+)
+
+train_generator = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode="categorical",
+    subset="training"
+)
+
+val_generator = train_datagen.flow_from_directory(
+    val_dir,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode="categorical",
+    subset="validation"
 )
