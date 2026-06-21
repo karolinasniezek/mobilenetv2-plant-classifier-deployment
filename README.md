@@ -4,16 +4,34 @@
 
 End-to-end Computer Vision project demonstrating Deep Learning, Transfer Learning, Model Deployment, REST API development, and real-time image classification using TensorFlow, FastAPI, and Streamlit.
 
-The solution consists of:
+The solution demonstrates the complete machine learning lifecycle, including data preprocessing, model training, evaluation, deployment, and real-time inference through a production-ready REST API and web application.
 
-- TensorFlow/Keras model trained using MobileNetV2 transfer learning
-- FastAPI backend exposing a prediction endpoint
-- Streamlit frontend for image upload and inference
+The project leverages MobileNetV2 pretrained on ImageNet as a feature extractor and fine-tunes a classification head to identify plant species from RGB images.
+
+Key components include:
+
+Deep Learning image classification model built with TensorFlow and Keras
+Transfer Learning using MobileNetV2 pretrained on ImageNet
+FastAPI-based REST API for scalable model serving
+Streamlit frontend for interactive image inference
+End-to-end deployment workflow from training to production inference
 
 The application allows users to upload an image of a plant seedling and receive:
 
-- predicted class
-- confidence score
+predicted plant species
+prediction confidence score
+
+This project demonstrates practical skills in:
+
+Computer Vision
+Deep Learning
+Transfer Learning
+Image Classification
+Model Deployment
+REST API Development
+MLOps Fundamentals
+Production Inference Pipelines
+TensorFlow Ecosystem
 
 ---
 
@@ -278,14 +296,17 @@ tf.config.experimental.enable_op_determinism()
 
 ## Features
 
-- Image classification using MobileNetV2
-- Transfer learning approach
-- FastAPI REST API
-- Streamlit user interface
-- Confidence score reporting
-- Reproducible training pipeline
-- Interactive image upload
-- Real-time prediction
+* End-to-end Computer Vision pipeline
+* Deep Learning image classification
+* Transfer Learning with MobileNetV2
+* Image preprocessing and normalization
+* FastAPI model serving endpoint
+* Real-time inference
+* Streamlit interactive frontend
+* Confidence score estimation
+* Reproducible training configuration
+* Production-ready deployment architecture
+
 
 ---
 
@@ -303,6 +324,6 @@ Batch inference
 
 ---
 
-Machine Learning / Deep Learning Portfolio Project
+Computer Vision • Deep Learning • Transfer Learning • Model Deployment
 
 This project demonstrates the complete machine learning lifecycle, including model training, deployment through a REST API, and integration with a user-facing web application.
