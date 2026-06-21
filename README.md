@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is an end-to-end machine learning application for plant seedling classification.
+End-to-end Computer Vision and Deep Learning application for plant seedling classification using TensorFlow, MobileNetV2 transfer learning, FastAPI REST API, and Streamlit frontend for real-time inference.
 
 The solution consists of:
 
